@@ -10,7 +10,7 @@ with open("nb_model.pkl","rb") as f:
 st.title("Movie Review Positive/Negative Class Predictor")
 st.write("Bhanu Prakash Reddy ChinnaPashula")
 
-review = st.text_input("review")
+review = st.text_input("Please enter your review")
 
 import nltk
 import re
@@ -33,9 +33,6 @@ def Clean(text):
 
 if st.button("Predict Review"):
     cleaned_text = Clean(review)
-    input_df = pd.DataFrame([{
-        "review" : cleaned_text
-    }])
 
-    result = model.predict([input_df])
-    st.success(f"Predicted Review Class : {result[0]}")
+    result = model.predict([cleaned_text])[0]
+    st.success(f"Predicted Review Class :                     {result}")
