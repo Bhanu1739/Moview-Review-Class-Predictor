@@ -13,9 +13,9 @@ st.write("Bhanu Prakash Reddy ChinnaPashula")
 review = st.text_input("review")
 
 if st.button("Predict Review"):
-    input_df = pd.DataFrame([
+    input_df = pd.DataFrame([{
         "review" : review
-    ])
+    }])
 
     result = model.predict(input_df)[0]
     st.success(f"Predicted Review Class : {result}")
